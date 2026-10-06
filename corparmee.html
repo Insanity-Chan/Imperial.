@@ -112,7 +112,7 @@
     }
 
     .holo-corp-item.open .holo-corp-content {
-      max-height: 2000px;
+      max-height: 3000px;
     }
 
     .holo-corp-inner {
@@ -160,6 +160,7 @@
       justify-content: space-around;
       flex-wrap: wrap;
       gap: 15px;
+      margin-bottom: 25px;
     }
 
     .holo-corp-skill {
@@ -173,6 +174,7 @@
       border: 1px solid var(--holo-dim);
       background: rgba(26, 0, 0, 0.3);
       transition: all 0.3s;
+      cursor: pointer;
     }
 
     .holo-corp-skill:hover {
@@ -180,6 +182,116 @@
       background: var(--holo-dim);
       box-shadow: 0 0 15px var(--holo-glow);
       transform: translateY(-3px);
+    }
+
+    .holo-corp-image {
+      width: 100%;
+      max-width: 400px;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      margin: 20px auto 0;
+      border: 1px solid var(--holo-dim);
+      background: rgba(5, 5, 5, 0.5);
+      transition: all 0.3s;
+    }
+
+    .holo-corp-image:hover {
+      border-color: var(--holo-cyan);
+      box-shadow: 0 0 15px var(--holo-glow);
+    }
+
+    .holo-corp-image.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      opacity: 0.3;
+      font-style: italic;
+    }
+
+    /* MODAL COMPÉTENCE */
+    .holo-skill-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(5, 5, 5, 0.85);
+      backdrop-filter: blur(4px);
+      z-index: 10003;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .holo-skill-overlay.active {
+      display: flex;
+    }
+
+    .holo-skill-box {
+      position: relative;
+      max-width: 750px;
+      width: 90%;
+      border: 1px solid var(--holo-cyan);
+      background: rgba(26, 0, 0, 0.95);
+      padding: 45px;
+      box-shadow: 0 0 40px var(--holo-glow), inset 0 0 30px rgba(255,26,26,0.05);
+      animation: skillIn 0.3s ease;
+    }
+
+    @keyframes skillIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .holo-skill-box::before,
+    .holo-skill-box::after {
+      content: '';
+      position: absolute;
+      width: 23px; height: 23px;
+      border: 2px solid var(--holo-cyan);
+      box-shadow: 0 0 8px var(--holo-glow);
+    }
+
+    .holo-skill-box::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+    .holo-skill-box::after  { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+    .holo-skill-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+      text-shadow: 0 0 12px var(--holo-glow);
+      margin-bottom: 30px;
+      color: var(--holo-cyan);
+    }
+
+    .holo-skill-gif {
+      width: 100%;
+      max-width: 500px;
+      max-height: 400px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid var(--holo-dim);
+      background: rgba(5, 5, 5, 0.5);
+    }
+
+    .holo-skill-close {
+      position: absolute;
+      top: 15px; right: 23px;
+      background: none;
+      border: none;
+      color: var(--holo-cyan);
+      font-size: 2.25rem;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .holo-skill-close:hover {
+      opacity: 1;
+      text-shadow: 0 0 10px var(--holo-glow);
     }
 
     @media (max-width: 600px) {
@@ -253,11 +365,13 @@
             </div>
             <div class="holo-corp-skills-title">Compétences Requises</div>
             <div class="holo-corp-skills">
-              <div class="holo-corp-skill">Résistance</div>
-              <div class="holo-corp-skill">Mentalité</div>
-              <div class="holo-corp-skill">Polyvalence</div>
-              <div class="holo-corp-skill">Réactivité</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Résistance', 'images/corp/soldat-lourd-resistance.gif')">Résistance</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Mentalité', 'images/corp/soldat-lourd-mentalite.gif')">Mentalité</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Polyvalence', 'images/corp/soldat-lourd-polyvalence.gif')">Polyvalence</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Réactivité', 'images/corp/soldat-lourd-reactivite.gif')">Réactivité</div>
             </div>
+            <img class="holo-corp-image" src="images/corp/soldat-lourd.png" alt="Soldat Lourd"
+                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image à ajouter'">
           </div>
         </div>
       </div>
@@ -276,11 +390,13 @@
             </div>
             <div class="holo-corp-skills-title">Compétences Requises</div>
             <div class="holo-corp-skills">
-              <div class="holo-corp-skill">[Compétence 1]</div>
-              <div class="holo-corp-skill">[Compétence 2]</div>
-              <div class="holo-corp-skill">[Compétence 3]</div>
-              <div class="holo-corp-skill">[Compétence 4]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 1', 'images/corp/sniper-comp1.gif')">[Compétence 1]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 2', 'images/corp/sniper-comp2.gif')">[Compétence 2]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 3', 'images/corp/sniper-comp3.gif')">[Compétence 3]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 4', 'images/corp/sniper-comp4.gif')">[Compétence 4]</div>
             </div>
+            <img class="holo-corp-image" src="images/corp/sniper.png" alt="Sniper"
+                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image à ajouter'">
           </div>
         </div>
       </div>
@@ -299,11 +415,13 @@
             </div>
             <div class="holo-corp-skills-title">Compétences Requises</div>
             <div class="holo-corp-skills">
-              <div class="holo-corp-skill">[Compétence 1]</div>
-              <div class="holo-corp-skill">[Compétence 2]</div>
-              <div class="holo-corp-skill">[Compétence 3]</div>
-              <div class="holo-corp-skill">[Compétence 4]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 1', 'images/corp/commando-comp1.gif')">[Compétence 1]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 2', 'images/corp/commando-comp2.gif')">[Compétence 2]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 3', 'images/corp/commando-comp3.gif')">[Compétence 3]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 4', 'images/corp/commando-comp4.gif')">[Compétence 4]</div>
             </div>
+            <img class="holo-corp-image" src="images/corp/commando.png" alt="Commando"
+                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image à ajouter'">
           </div>
         </div>
       </div>
@@ -333,11 +451,13 @@
             </div>
             <div class="holo-corp-skills-title">Compétences Requises</div>
             <div class="holo-corp-skills">
-              <div class="holo-corp-skill">[Compétence 1]</div>
-              <div class="holo-corp-skill">[Compétence 2]</div>
-              <div class="holo-corp-skill">[Compétence 3]</div>
-              <div class="holo-corp-skill">[Compétence 4]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 1', 'images/corp/aeroporte-comp1.gif')">[Compétence 1]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 2', 'images/corp/aeroporte-comp2.gif')">[Compétence 2]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 3', 'images/corp/aeroporte-comp3.gif')">[Compétence 3]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 4', 'images/corp/aeroporte-comp4.gif')">[Compétence 4]</div>
             </div>
+            <img class="holo-corp-image" src="images/corp/aeroporte.png" alt="Aéroporté"
+                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image à ajouter'">
           </div>
         </div>
       </div>
@@ -356,11 +476,13 @@
             </div>
             <div class="holo-corp-skills-title">Compétences Requises</div>
             <div class="holo-corp-skills">
-              <div class="holo-corp-skill">[Compétence 1]</div>
-              <div class="holo-corp-skill">[Compétence 2]</div>
-              <div class="holo-corp-skill">[Compétence 3]</div>
-              <div class="holo-corp-skill">[Compétence 4]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 1', 'images/corp/ingenieur-comp1.gif')">[Compétence 1]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 2', 'images/corp/ingenieur-comp2.gif')">[Compétence 2]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 3', 'images/corp/ingenieur-comp3.gif')">[Compétence 3]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 4', 'images/corp/ingenieur-comp4.gif')">[Compétence 4]</div>
             </div>
+            <img class="holo-corp-image" src="images/corp/ingenieur.png" alt="Ingénieur"
+                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image à ajouter'">
           </div>
         </div>
       </div>
@@ -379,11 +501,13 @@
             </div>
             <div class="holo-corp-skills-title">Compétences Requises</div>
             <div class="holo-corp-skills">
-              <div class="holo-corp-skill">[Compétence 1]</div>
-              <div class="holo-corp-skill">[Compétence 2]</div>
-              <div class="holo-corp-skill">[Compétence 3]</div>
-              <div class="holo-corp-skill">[Compétence 4]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 1', 'images/corp/medecin-comp1.gif')">[Compétence 1]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 2', 'images/corp/medecin-comp2.gif')">[Compétence 2]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 3', 'images/corp/medecin-comp3.gif')">[Compétence 3]</div>
+              <div class="holo-corp-skill" onclick="openSkillModal('Compétence 4', 'images/corp/medecin-comp4.gif')">[Compétence 4]</div>
             </div>
+            <img class="holo-corp-image" src="images/corp/medecin.png" alt="Médecin"
+                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image à ajouter'">
           </div>
         </div>
       </div>
@@ -394,6 +518,15 @@
       <span><span class="blink">●</span> CONNEXION SÉCURISÉE</span>
       <span id="horloge">--:--:--</span>
       <span>SECTEUR: KAAS</span>
+    </div>
+  </div>
+
+  <!-- MODAL COMPÉTENCE -->
+  <div class="holo-skill-overlay" id="skillModal" onclick="closeSkillModal(event)">
+    <div class="holo-skill-box" onclick="event.stopPropagation()">
+      <button class="holo-skill-close" onclick="closeSkillModal(event)">×</button>
+      <div class="holo-skill-name" id="modalSkillName">Compétence</div>
+      <img class="holo-skill-gif" id="modalSkillGif" src="" alt="Compétence">
     </div>
   </div>
 
@@ -427,6 +560,34 @@
         }
       });
     }
+
+    function openSkillModal(skillName, gifPath) {
+      document.getElementById('modalSkillName').textContent = skillName;
+
+      const gif = document.getElementById('modalSkillGif');
+      gif.src = gifPath;
+      gif.style.display = 'block';
+      gif.onerror = function() {
+        this.style.display = 'none';
+      };
+      gif.onload = function() {
+        this.style.display = 'block';
+      };
+
+      document.getElementById('skillModal').classList.add('active');
+    }
+
+    function closeSkillModal(event) {
+      if (event.target === document.getElementById('skillModal') || event.target.classList.contains('holo-skill-close')) {
+        document.getElementById('skillModal').classList.remove('active');
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('skillModal').classList.remove('active');
+      }
+    });
   </script>
 </body>
 </html>
