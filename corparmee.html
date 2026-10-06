@@ -16,11 +16,6 @@
   <meta property="og:site_name" content="Réseau Impérial">
   <meta name="theme-color" content="#ff1a1a">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Réseau Impérial — Corp & Spécialisation">
-  <meta name="twitter:description" content="Corp et Spécialisation de l'armée impériale.">
-  <meta name="twitter:image" content="https://insanity-chan.github.io/Imperial/preview.png">
-
   <style>
     .holo-corp-category {
       font-family: 'Orbitron', sans-serif;
@@ -124,4 +119,314 @@
       padding: 0 20px 25px;
     }
 
-    .holo
+    .holo-corp-subtitle {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-white);
+      opacity: 0.6;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--holo-dim);
+    }
+
+    .holo-corp-desc {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      opacity: 0.85;
+      color: var(--text-white);
+      margin-bottom: 25px;
+    }
+
+    .holo-corp-desc p {
+      margin-bottom: 12px;
+    }
+
+    .holo-corp-skills-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--holo-cyan);
+      text-shadow: 0 0 10px var(--holo-glow);
+      margin-bottom: 15px;
+      padding-top: 15px;
+      border-top: 1px solid var(--holo-dim);
+    }
+
+    .holo-corp-skills {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .holo-corp-skill {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--holo-cyan);
+      text-shadow: 0 0 8px var(--holo-glow);
+      padding: 10px 25px;
+      border: 1px solid var(--holo-dim);
+      background: rgba(26, 0, 0, 0.3);
+      transition: all 0.3s;
+    }
+
+    .holo-corp-skill:hover {
+      border-color: var(--holo-cyan);
+      background: var(--holo-dim);
+      box-shadow: 0 0 15px var(--holo-glow);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 600px) {
+      .holo-corp-skills {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .holo-corp-skill {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="boot-screen">
+    <div class="boot-text">&gt; INITIALISATION DU TERMINAL IMPÉRIAL...</div>
+    <div class="boot-text">&gt; CONNEXION AU RÉSEAU DE L'EMPIRE...</div>
+    <div class="boot-text">&gt; CHARGEMENT : CORP & SPÉCIALISATION...</div>
+    <div class="boot-bar"><div class="boot-bar-fill"></div></div>
+  </div>
+
+  <div class="holo-header">
+    <h1>Corp & Spécialisation</h1>
+    <div class="subtitle">Organisation — Empire Galactique</div>
+  </div>
+
+  <div class="holo-frame">
+
+    <div class="holo-nav">
+      <a href="index.html"><button>Accueil</button></a>
+      <a href="histoire.html"><button>Histoire du Corps</button></a>
+      <a href="formation.html"><button>Formation Cadet</button></a>
+      <a href="unites.html"><button>Unités, Alertes & Décorations</button></a>
+      <a href="sphere.html"><button>Sphère</button></a>
+      <a href="corparmee.html"><button class="active">Corp & Spé.</button></a>
+    </div>
+
+    <!-- SOMMAIRE -->
+    <div class="holo-panel active">
+      <h2>Sommaire</h2>
+      <div class="holo-sommaire">
+        <a href="#corp" class="holo-link">Corp</a>
+        <a href="#specialisation" class="holo-link">Spécialisation</a>
+      </div>
+    </div>
+
+    <!-- CORP -->
+    <div class="holo-section" id="corp">
+      <div class="holo-corp-category">Corp</div>
+
+      <div class="holo-corp-toggle-all">
+        <button onclick="toggleAllCorp('corp', true)">▸ Tout ouvrir</button>
+        <button onclick="toggleAllCorp('corp', false)">▸ Tout fermer</button>
+      </div>
+
+      <!-- SOLDAT LOURD -->
+      <div class="holo-corp-item" data-group="corp">
+        <div class="holo-corp-header" onclick="toggleCorp(this)">
+          <div class="holo-corp-title">Soldat Lourd</div>
+          <div class="holo-corp-arrow">▸</div>
+        </div>
+        <div class="holo-corp-content">
+          <div class="holo-corp-inner">
+            <div class="holo-corp-subtitle">Présentation du Corps</div>
+            <div class="holo-corp-desc">
+              <p>Le Corps des Soldats Lourds est l'un des corps les plus compliqués à rejoindre. Il est connu pour sa grande maîtrise des armes ainsi que sa résistance. En effet, les Soldats Lourds seront les piliers de l'armée impériale sur le front. Souvent à l'avant, ils devront faire face aux assauts des républicains et jedis à l'aide de leurs armes lourdes.</p>
+              <p>Un Soldat Lourd se doit d'être réactif et aux aguets afin d'intervenir comme il se doit sur un champ de bataille. Leur force de frappe est l'une des plus importante et meurtrière face aux adversaires.</p>
+              <p>Ils peuvent également servir de gardes impériaux, notamment lorsqu'ils sont équipés de leur bouclier impérial ainsi que de leur grenade paralysante.</p>
+            </div>
+            <div class="holo-corp-skills-title">Compétences Requises</div>
+            <div class="holo-corp-skills">
+              <div class="holo-corp-skill">Résistance</div>
+              <div class="holo-corp-skill">Mentalité</div>
+              <div class="holo-corp-skill">Polyvalence</div>
+              <div class="holo-corp-skill">Réactivité</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SNIPER -->
+      <div class="holo-corp-item" data-group="corp">
+        <div class="holo-corp-header" onclick="toggleCorp(this)">
+          <div class="holo-corp-title">Sniper</div>
+          <div class="holo-corp-arrow">▸</div>
+        </div>
+        <div class="holo-corp-content">
+          <div class="holo-corp-inner">
+            <div class="holo-corp-subtitle">Présentation du Corps</div>
+            <div class="holo-corp-desc">
+              <p>[TEXTE DE PRÉSENTATION À AJOUTER]</p>
+            </div>
+            <div class="holo-corp-skills-title">Compétences Requises</div>
+            <div class="holo-corp-skills">
+              <div class="holo-corp-skill">[Compétence 1]</div>
+              <div class="holo-corp-skill">[Compétence 2]</div>
+              <div class="holo-corp-skill">[Compétence 3]</div>
+              <div class="holo-corp-skill">[Compétence 4]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMMANDO -->
+      <div class="holo-corp-item" data-group="corp">
+        <div class="holo-corp-header" onclick="toggleCorp(this)">
+          <div class="holo-corp-title">Commando</div>
+          <div class="holo-corp-arrow">▸</div>
+        </div>
+        <div class="holo-corp-content">
+          <div class="holo-corp-inner">
+            <div class="holo-corp-subtitle">Présentation du Corps</div>
+            <div class="holo-corp-desc">
+              <p>[TEXTE DE PRÉSENTATION À AJOUTER]</p>
+            </div>
+            <div class="holo-corp-skills-title">Compétences Requises</div>
+            <div class="holo-corp-skills">
+              <div class="holo-corp-skill">[Compétence 1]</div>
+              <div class="holo-corp-skill">[Compétence 2]</div>
+              <div class="holo-corp-skill">[Compétence 3]</div>
+              <div class="holo-corp-skill">[Compétence 4]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SPÉCIALISATION -->
+    <div class="holo-section" id="specialisation">
+      <div class="holo-corp-category">Spécialisation</div>
+
+      <div class="holo-corp-toggle-all">
+        <button onclick="toggleAllCorp('specialisation', true)">▸ Tout ouvrir</button>
+        <button onclick="toggleAllCorp('specialisation', false)">▸ Tout fermer</button>
+      </div>
+
+      <!-- AÉROPORTÉ -->
+      <div class="holo-corp-item" data-group="specialisation">
+        <div class="holo-corp-header" onclick="toggleCorp(this)">
+          <div class="holo-corp-title">Aéroporté</div>
+          <div class="holo-corp-arrow">▸</div>
+        </div>
+        <div class="holo-corp-content">
+          <div class="holo-corp-inner">
+            <div class="holo-corp-subtitle">Présentation du Corps</div>
+            <div class="holo-corp-desc">
+              <p>[TEXTE DE PRÉSENTATION À AJOUTER]</p>
+            </div>
+            <div class="holo-corp-skills-title">Compétences Requises</div>
+            <div class="holo-corp-skills">
+              <div class="holo-corp-skill">[Compétence 1]</div>
+              <div class="holo-corp-skill">[Compétence 2]</div>
+              <div class="holo-corp-skill">[Compétence 3]</div>
+              <div class="holo-corp-skill">[Compétence 4]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INGÉNIEUR -->
+      <div class="holo-corp-item" data-group="specialisation">
+        <div class="holo-corp-header" onclick="toggleCorp(this)">
+          <div class="holo-corp-title">Ingénieur</div>
+          <div class="holo-corp-arrow">▸</div>
+        </div>
+        <div class="holo-corp-content">
+          <div class="holo-corp-inner">
+            <div class="holo-corp-subtitle">Présentation du Corps</div>
+            <div class="holo-corp-desc">
+              <p>[TEXTE DE PRÉSENTATION À AJOUTER]</p>
+            </div>
+            <div class="holo-corp-skills-title">Compétences Requises</div>
+            <div class="holo-corp-skills">
+              <div class="holo-corp-skill">[Compétence 1]</div>
+              <div class="holo-corp-skill">[Compétence 2]</div>
+              <div class="holo-corp-skill">[Compétence 3]</div>
+              <div class="holo-corp-skill">[Compétence 4]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MÉDECIN -->
+      <div class="holo-corp-item" data-group="specialisation">
+        <div class="holo-corp-header" onclick="toggleCorp(this)">
+          <div class="holo-corp-title">Médecin</div>
+          <div class="holo-corp-arrow">▸</div>
+        </div>
+        <div class="holo-corp-content">
+          <div class="holo-corp-inner">
+            <div class="holo-corp-subtitle">Présentation du Corps</div>
+            <div class="holo-corp-desc">
+              <p>[TEXTE DE PRÉSENTATION À AJOUTER]</p>
+            </div>
+            <div class="holo-corp-skills-title">Compétences Requises</div>
+            <div class="holo-corp-skills">
+              <div class="holo-corp-skill">[Compétence 1]</div>
+              <div class="holo-corp-skill">[Compétence 2]</div>
+              <div class="holo-corp-skill">[Compétence 3]</div>
+              <div class="holo-corp-skill">[Compétence 4]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="holo-status">
+      <span><span class="blink">●</span> CONNEXION SÉCURISÉE</span>
+      <span id="horloge">--:--:--</span>
+      <span>SECTEUR: KAAS</span>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('boot-screen').style.display = 'none';
+    }, 700);
+
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('horloge').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    function toggleCorp(header) {
+      const item = header.parentElement;
+      item.classList.toggle('open');
+    }
+
+    function toggleAllCorp(group, open) {
+      const items = document.querySelectorAll(`[data-group="${group}"]`);
+      items.forEach(item => {
+        if (open) {
+          item.classList.add('open');
+        } else {
+          item.classList.remove('open');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
