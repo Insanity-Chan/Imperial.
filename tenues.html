@@ -102,134 +102,153 @@
       background: rgba(26, 0, 0, 0.3);
     }
 
-    .holo-tenue-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    .holo-tenue-corps-row {
+      display: flex;
       gap: 20px;
+      flex-wrap: wrap;
       margin-bottom: 20px;
     }
 
-    .holo-tenue-card {
+    .holo-tenue-corps-block {
+      flex: 1;
+      min-width: 250px;
       border: 1px solid var(--holo-dim);
       background: rgba(26, 0, 0, 0.2);
-      padding: 20px;
+      padding: 15px;
       transition: all 0.3s;
       text-align: center;
     }
 
-    .holo-tenue-card:hover {
+    .holo-tenue-corps-block:hover {
       border-color: var(--holo-cyan);
-      box-shadow: 0 0 20px var(--holo-glow);
-      transform: translateY(-3px);
+      box-shadow: 0 0 15px var(--holo-glow);
     }
 
-    .holo-tenue-name {
+    .holo-tenue-corps-name {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1rem;
+      font-size: 0.9rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--holo-cyan);
       text-shadow: 0 0 8px var(--holo-glow);
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--holo-dim);
     }
 
-    .holo-tenue-corps {
+    .holo-tenue-corps-images {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       gap: 10px;
-      flex-wrap: wrap;
     }
 
-    .holo-tenue-corps-item {
-      flex: 1;
-      min-width: 90px;
+    .holo-tenue-img-box {
       text-align: center;
     }
 
     .holo-tenue-image {
-      width: 100%;
-      max-width: 120px;
+      width: 120px;
       height: 200px;
       object-fit: contain;
       border: 1px solid var(--holo-dim);
       background: rgba(5, 5, 5, 0.5);
       display: block;
-      margin: 0 auto 8px;
+      margin: 0 auto 5px;
       transition: all 0.3s;
       padding: 5px;
     }
 
-    .holo-tenue-card:hover .holo-tenue-image {
+    .holo-tenue-corps-block:hover .holo-tenue-image {
       border-color: var(--holo-cyan);
-      box-shadow: 0 0 15px var(--holo-glow);
+      box-shadow: 0 0 10px var(--holo-glow);
     }
 
     .holo-tenue-image.placeholder {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       opacity: 0.3;
       font-style: italic;
     }
 
-    .holo-tenue-corps-label {
-      font-family: 'Orbitron', sans-serif;
+    .holo-tenue-img-label {
       font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--holo-cyan);
-      opacity: 0.7;
+      opacity: 0.5;
+      letter-spacing: 0.05em;
+      color: var(--text-white);
+    }
+
+    .holo-tenue-single-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .holo-tenue-single-card {
+      flex: 1;
+      min-width: 200px;
+      border: 1px solid var(--holo-dim);
+      background: rgba(26, 0, 0, 0.2);
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .holo-tenue-single-card:hover {
+      border-color: var(--holo-cyan);
+      box-shadow: 0 0 15px var(--holo-glow);
     }
 
     .holo-tenue-image-single {
       width: 100%;
-      max-width: 250px;
-      height: 350px;
+      max-width: 200px;
+      height: 300px;
       object-fit: contain;
       border: 1px solid var(--holo-dim);
       background: rgba(5, 5, 5, 0.5);
       display: block;
-      margin: 0 auto 15px;
-      transition: all 0.3s;
+      margin: 0 auto 10px;
       padding: 10px;
+      transition: all 0.3s;
     }
 
-    .holo-tenue-card:hover .holo-tenue-image-single {
+    .holo-tenue-single-card:hover .holo-tenue-image-single {
       border-color: var(--holo-cyan);
-      box-shadow: 0 0 15px var(--holo-glow);
+      box-shadow: 0 0 10px var(--holo-glow);
     }
 
     .holo-tenue-image-single.placeholder {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       opacity: 0.3;
       font-style: italic;
     }
 
-    .holo-tenue-desc {
-      font-size: 0.8rem;
-      opacity: 0.7;
-      line-height: 1.6;
-      color: var(--text-white);
-      margin-top: 10px;
+    .holo-tenue-single-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--holo-cyan);
+      text-shadow: 0 0 8px var(--holo-glow);
     }
 
     @media (max-width: 600px) {
-      .holo-tenue-grid {
-        grid-template-columns: 1fr;
+      .holo-tenue-corps-row {
+        flex-direction: column;
       }
 
       .holo-tenue-image {
-        max-width: 100px;
+        width: 100px;
         height: 160px;
       }
 
-      .holo-tenue-image-single {
-        max-width: 200px;
-        height: 280px;
+      .holo-tenue-single-row {
+        flex-direction: column;
       }
     }
   </style>
@@ -254,7 +273,7 @@
       <a href="index.html"><button>Accueil</button></a>
       <a href="histoire.html"><button>Histoire du Corps</button></a>
       <a href="formation.html"><button>Formation Cadet</button></a>
-      <a href="corparmee.html"><button>Corp & Spé.</button></a>
+            <a href="corparmee.html"><button>Corp & Spé.</button></a>
       <a href="tenues.html"><button class="active">Tenues</button></a>
       <a href="unites.html"><button>Unités, Alertes & Décorations</button></a>
       <a href="sphere.html"><button>Sphère</button></a>
@@ -267,326 +286,372 @@
 
     <div class="holo-tenue-container">
 
-      <!-- PANEL HOMME -->
+      <!-- ============ PANEL HOMME ============ -->
       <div class="holo-tenue-panel active" id="panel-homme">
 
+        <!-- HOMMES DU RANG -->
         <div class="holo-tenue-rank-cat">Hommes du Rang</div>
-        <div class="holo-tenue-grid">
+        <div class="holo-tenue-corps-row">
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Soldat</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/soldat-lourd.png" alt="Soldat Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Soldat Lourd</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/rang-lourd-1.png" alt="Lourd 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/soldat-sniper.png" alt="Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/rang-lourd-2.png" alt="Lourd 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
-              </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/soldat-commando.png" alt="Commando"
-                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Caporal</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/caporal-lourd.png" alt="Caporal Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Sniper</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/rang-sniper-1.png" alt="Sniper 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/caporal-sniper.png" alt="Caporal Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/rang-sniper-2.png" alt="Sniper 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/caporal-commando.png" alt="Caporal Commando"
+            </div>
+          </div>
+
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Commando</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/rang-commando-1.png" alt="Commando 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
+              </div>
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/rang-commando-2.png" alt="Commando 2"
+                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
         </div>
 
+        <!-- SOUS-OFFICIERS -->
         <div class="holo-tenue-rank-cat">Sous-Officiers</div>
-        <div class="holo-tenue-grid">
+        <div class="holo-tenue-corps-row">
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Sergent</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/sergent-lourd.png" alt="Sergent Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Soldat Lourd</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/sous-off-lourd-1.png" alt="Lourd 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/sergent-sniper.png" alt="Sergent Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/sous-off-lourd-2.png" alt="Lourd 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
-              </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/sergent-commando.png" alt="Sergent Commando"
-                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Enseigne</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/enseigne-lourd.png" alt="Enseigne Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Sniper</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/sous-off-sniper-1.png" alt="Sniper 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/enseigne-sniper.png" alt="Enseigne Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/sous-off-sniper-2.png" alt="Sniper 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/enseigne-commando.png" alt="Enseigne Commando"
+            </div>
+          </div>
+
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Commando</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/sous-off-commando-1.png" alt="Commando 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
+              </div>
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/sous-off-commando-2.png" alt="Commando 2"
+                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
         </div>
 
+        <!-- OFFICIERS -->
         <div class="holo-tenue-rank-cat">Officiers</div>
-        <div class="holo-tenue-grid">
+        <div class="holo-tenue-corps-row">
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Lieutenant</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/lieutenant-lourd.png" alt="Lieutenant Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Soldat Lourd</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/off-lourd-1.png" alt="Lourd 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/lieutenant-sniper.png" alt="Lieutenant Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/off-lourd-2.png" alt="Lourd 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
-              </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/lieutenant-commando.png" alt="Lieutenant Commando"
-                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Capitaine</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/capitaine-lourd.png" alt="Capitaine Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Sniper</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/off-sniper-1.png" alt="Sniper 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/capitaine-sniper.png" alt="Capitaine Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/off-sniper-2.png" alt="Sniper 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/homme/capitaine-commando.png" alt="Capitaine Commando"
+            </div>
+          </div>
+
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Commando</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/off-commando-1.png" alt="Commando 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
+              </div>
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/homme/off-commando-2.png" alt="Commando 2"
+                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
         </div>
 
+        <!-- HAUT COMMANDEMENT -->
         <div class="holo-tenue-rank-cat">Haut Commandement</div>
-        <div class="holo-tenue-grid">
-          <div class="holo-tenue-card">
-            <img class="holo-tenue-image-single" src="images/tenues/homme/commander.png" alt="Tenue Commander"
-                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image à ajouter'">
-            <div class="holo-tenue-name">Commander</div>
-            <div class="holo-tenue-desc">Tenue réglementaire du Commander.</div>
+        <div class="holo-tenue-single-row">
+
+          <div class="holo-tenue-single-card">
+            <img class="holo-tenue-image-single" src="images/tenues/homme/commander.png" alt="Commander"
+                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
+            <div class="holo-tenue-single-name">Commander</div>
           </div>
-          <div class="holo-tenue-card">
-            <img class="holo-tenue-image-single" src="images/tenues/homme/moff.png" alt="Tenue Moff"
-                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image à ajouter'">
-            <div class="holo-tenue-name">Moff</div>
-            <div class="holo-tenue-desc">Tenue réglementaire du Moff.</div>
+
+          <div class="holo-tenue-single-card">
+            <img class="holo-tenue-image-single" src="images/tenues/homme/moff.png" alt="Moff"
+                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
+            <div class="holo-tenue-single-name">Moff</div>
           </div>
+
         </div>
 
       </div>
 
-      <!-- PANEL FEMME -->
+      <!-- ============ PANEL FEMME ============ -->
       <div class="holo-tenue-panel" id="panel-femme">
 
+        <!-- HOMMES DU RANG -->
         <div class="holo-tenue-rank-cat">Hommes du Rang</div>
-        <div class="holo-tenue-grid">
+        <div class="holo-tenue-corps-row">
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Soldat</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/soldat-lourd.png" alt="Soldat Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Soldat Lourd</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/rang-lourd-1.png" alt="Lourd 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/soldat-sniper.png" alt="Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/rang-lourd-2.png" alt="Lourd 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
-              </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/soldat-commando.png" alt="Commando"
-                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Caporal</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/caporal-lourd.png" alt="Caporal Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Sniper</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/rang-sniper-1.png" alt="Sniper 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/caporal-sniper.png" alt="Caporal Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/rang-sniper-2.png" alt="Sniper 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/caporal-commando.png" alt="Caporal Commando"
+            </div>
+          </div>
+
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Commando</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/rang-commando-1.png" alt="Commando 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
+              </div>
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/rang-commando-2.png" alt="Commando 2"
+                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
         </div>
 
+        <!-- SOUS-OFFICIERS -->
         <div class="holo-tenue-rank-cat">Sous-Officiers</div>
-        <div class="holo-tenue-grid">
+        <div class="holo-tenue-corps-row">
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Sergent</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/sergent-lourd.png" alt="Sergent Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Soldat Lourd</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/sous-off-lourd-1.png" alt="Lourd 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/sergent-sniper.png" alt="Sergent Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/sous-off-lourd-2.png" alt="Lourd 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
-              </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/sergent-commando.png" alt="Sergent Commando"
-                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Enseigne</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/enseigne-lourd.png" alt="Enseigne Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Sniper</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/sous-off-sniper-1.png" alt="Sniper 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/enseigne-sniper.png" alt="Enseigne Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/sous-off-sniper-2.png" alt="Sniper 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/enseigne-commando.png" alt="Enseigne Commando"
+            </div>
+          </div>
+
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Commando</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/sous-off-commando-1.png" alt="Commando 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
+              </div>
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/sous-off-commando-2.png" alt="Commando 2"
+                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
         </div>
 
+        <!-- OFFICIERS -->
         <div class="holo-tenue-rank-cat">Officiers</div>
-        <div class="holo-tenue-grid">
+        <div class="holo-tenue-corps-row">
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Lieutenant</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/lieutenant-lourd.png" alt="Lieutenant Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Soldat Lourd</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/off-lourd-1.png" alt="Lourd 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/lieutenant-sniper.png" alt="Lieutenant Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/off-lourd-2.png" alt="Lourd 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
-              </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/lieutenant-commando.png" alt="Lieutenant Commando"
-                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
-          <div class="holo-tenue-card">
-            <div class="holo-tenue-name">Capitaine</div>
-            <div class="holo-tenue-corps">
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/capitaine-lourd.png" alt="Capitaine Lourd"
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Sniper</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/off-sniper-1.png" alt="Sniper 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Lourd</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/capitaine-sniper.png" alt="Capitaine Sniper"
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/off-sniper-2.png" alt="Sniper 2"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Sniper</div>
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
-              <div class="holo-tenue-corps-item">
-                <img class="holo-tenue-image" src="images/tenues/femme/capitaine-commando.png" alt="Capitaine Commando"
+            </div>
+          </div>
+
+          <div class="holo-tenue-corps-block">
+            <div class="holo-tenue-corps-name">Commando</div>
+            <div class="holo-tenue-corps-images">
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/off-commando-1.png" alt="Commando 1"
                      onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
-                <div class="holo-tenue-corps-label">Commando</div>
+                <div class="holo-tenue-img-label">Variante 1</div>
+              </div>
+              <div class="holo-tenue-img-box">
+                <img class="holo-tenue-image" src="images/tenues/femme/off-commando-2.png" alt="Commando 2"
+                     onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
+                <div class="holo-tenue-img-label">Variante 2</div>
               </div>
             </div>
           </div>
 
         </div>
 
+        <!-- HAUT COMMANDEMENT -->
         <div class="holo-tenue-rank-cat">Haut Commandement</div>
-        <div class="holo-tenue-grid">
-          <div class="holo-tenue-card">
-            <img class="holo-tenue-image-single" src="images/tenues/femme/commander.png" alt="Tenue Commander"
-                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image à ajouter'">
-            <div class="holo-tenue-name">Commander</div>
-            <div class="holo-tenue-desc">Tenue réglementaire du Commander.</div>
+        <div class="holo-tenue-single-row">
+
+          <div class="holo-tenue-single-card">
+            <img class="holo-tenue-image-single" src="images/tenues/femme/commander.png" alt="Commander"
+                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
+            <div class="holo-tenue-single-name">Commander</div>
           </div>
-          <div class="holo-tenue-card">
-            <img class="holo-tenue-image-single" src="images/tenues/femme/moff.png" alt="Tenue Moff"
-                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image à ajouter'">
-            <div class="holo-tenue-name">Moff</div>
-            <div class="holo-tenue-desc">Tenue réglementaire du Moff.</div>
+
+          <div class="holo-tenue-single-card">
+            <img class="holo-tenue-image-single" src="images/tenues/femme/moff.png" alt="Moff"
+                 onerror="this.classList.add('placeholder');this.alt='';this.src='';this.textContent='Image'">
+            <div class="holo-tenue-single-name">Moff</div>
           </div>
+
         </div>
 
       </div>
@@ -596,7 +661,7 @@
     <div class="holo-status">
       <span><span class="blink">●</span> CONNEXION SÉCURISÉE</span>
       <span id="horloge">--:--:--</span>
-      <span>SECTEUR: KAAS</span>
+      <span>SECTEUR: DROMUND KAAS</span>
     </div>
   </div>
 
