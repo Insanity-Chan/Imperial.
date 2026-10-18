@@ -11,6 +11,11 @@
   --panel: rgba(30, 4, 6, 0.82);
   --bg-dark: #050505;
   --text-white: #ece6e6;
+  --hud-top: rgba(70, 8, 10, 0.96);
+  --hud-bottom: rgba(24, 3, 4, 0.96);
+  --hud-frame: rgba(14, 2, 3, 0.88);
+  --hud-tab-top: rgba(90, 12, 14, 0.9);
+  --hud-tab-bottom: rgba(35, 4, 5, 0.95);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1087,4 +1092,157 @@ body::after { content: none; animation: none; }
   .holo-frame { margin: 0 10px 10px; padding: 12px; }
   .holo-nav button { padding: 7px 12px; font-size: 0.8rem; }
   .holo-status { flex-direction: column; gap: 6px; }
+}
+
+
+/* ======================================================
+   HUD V2 — plus proche de l'interface SWTOR
+   fenêtre à coins coupés, onglets biseautés, coins en équerre
+   ====================================================== */
+
+/* --- Fenêtre : barre de titre --- */
+.holo-header {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  align-content: center;
+  margin: 20px 20px 0;
+  padding: 16px 70px 16px 100px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: linear-gradient(180deg, var(--holo-neon) 0%, var(--holo-neon) 55%, var(--holo-dim) 100%);
+  clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%, 0 18px);
+}
+.holo-header::before {
+  content: '';
+  position: absolute;
+  inset: 2px 2px 0 2px;
+  width: auto; height: auto;
+  grid-row: auto;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--hud-top), var(--hud-bottom));
+  clip-path: polygon(17px 0, calc(100% - 17px) 0, 100% 17px, 100% 100%, 0 100%, 0 17px);
+}
+.holo-header::after {
+  content: '';
+  position: absolute;
+  left: 26px; top: 50%;
+  width: 58px; height: 58px;
+  transform: translateY(-50%);
+  background: url('images/ICONE.png') center / contain no-repeat;
+}
+.holo-header h1::after {            /* petit bouton décoratif, comme la fenêtre du jeu */
+  content: '✕';
+  position: absolute;
+  right: 18px; top: 14px;
+  width: 26px; height: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--holo-neon);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 0.7rem;
+  letter-spacing: 0;
+  color: var(--holo-cyan);
+  text-shadow: none;
+  pointer-events: none;
+}
+
+/* --- Fenêtre : cadre principal --- */
+.holo-frame {
+  position: relative;
+  isolation: isolate;
+  margin: 0 20px 20px;
+  padding: 20px 22px 16px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  background: linear-gradient(180deg, var(--holo-dim) 0%, var(--holo-neon) 35%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px));
+}
+.holo-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0 2px 2px 2px;
+  z-index: -1;
+  background: var(--hud-frame);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 17px 100%, 0 calc(100% - 17px));
+}
+
+/* --- Onglets biseautés --- */
+.holo-nav { gap: 4px; margin-bottom: 20px; }
+.holo-nav button {
+  position: relative;
+  isolation: isolate;
+  padding: 10px 26px;
+  border: 0;
+  border-radius: 0;
+  background: var(--holo-neon);
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%, 0 12px);
+}
+.holo-nav button::before {
+  content: '';
+  position: absolute;
+  inset: 2px 2px 0 2px;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--hud-tab-top), var(--hud-tab-bottom));
+  clip-path: polygon(11px 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 0 100%, 0 11px);
+}
+.holo-nav button:hover { background: var(--holo-cyan); box-shadow: none; }
+.holo-nav button.active { background: var(--holo-accent); box-shadow: none; }
+.holo-nav button.active::before { background: linear-gradient(180deg, #ffc247, #c77a00); }
+
+/* --- Panneaux : coins en équerre --- */
+.holo-panel.active,
+.holo-section {
+  --br: var(--holo-cyan);
+  border: 1px solid var(--holo-dim);
+  border-radius: 4px;
+  background:
+    linear-gradient(var(--br), var(--br)) top left / 18px 2px no-repeat,
+    linear-gradient(var(--br), var(--br)) top left / 2px 18px no-repeat,
+    linear-gradient(var(--br), var(--br)) top right / 18px 2px no-repeat,
+    linear-gradient(var(--br), var(--br)) top right / 2px 18px no-repeat,
+    linear-gradient(var(--br), var(--br)) bottom left / 18px 2px no-repeat,
+    linear-gradient(var(--br), var(--br)) bottom left / 2px 18px no-repeat,
+    linear-gradient(var(--br), var(--br)) bottom right / 18px 2px no-repeat,
+    linear-gradient(var(--br), var(--br)) bottom right / 2px 18px no-repeat,
+    var(--panel);
+}
+.accueil-hero, .holo-card, a.accueil-carte { border-radius: 6px; }
+
+/* --- Barre d'état : jauge de signal + logo --- */
+.holo-status .blink {
+  display: inline-block;
+  width: 16px; height: 12px;
+  margin-right: 8px;
+  font-size: 0;
+  vertical-align: -1px;
+  animation: none;
+  background:
+    linear-gradient(var(--holo-cyan), var(--holo-cyan)) 0 100% / 3px 3px no-repeat,
+    linear-gradient(var(--holo-cyan), var(--holo-cyan)) 4px 100% / 3px 6px no-repeat,
+    linear-gradient(var(--holo-cyan), var(--holo-cyan)) 8px 100% / 3px 9px no-repeat,
+    linear-gradient(var(--holo-cyan), var(--holo-cyan)) 12px 100% / 3px 12px no-repeat;
+}
+.holo-status span:last-child::after {
+  content: '';
+  display: inline-block;
+  width: 18px; height: 18px;
+  margin-left: 8px;
+  vertical-align: -4px;
+  background: url('images/ICONE.png') center / contain no-repeat;
+}
+
+/* --- Mobile --- */
+@media (max-width: 600px) {
+  .holo-header { margin: 10px 10px 0; padding: 12px 14px 12px 70px; }
+  .holo-header::after { left: 12px; width: 44px; height: 44px; }
+  .holo-header h1::after { display: none; }
+  .holo-frame { margin: 0 10px 10px; padding: 14px 12px; }
+  .holo-nav button { padding: 8px 14px; }
 }
